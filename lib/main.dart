@@ -22,16 +22,9 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Icon> scoreKeeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-  ];
+  List<Icon> scoreKeeper = [];
+  List<String> questions = ['Question 1', 'Question2', 'Question3'];
+  int i = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +37,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(13.0),
             child: Center(
               child: Text(
-                'Question Text asdasdasdasdf sad asd as d a sd asd',
+                questions[i],
                 style: TextStyle(
                   fontSize: 17,
                   color: Colors.white,
@@ -57,18 +50,17 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: FlatButton(
-              child: Text('True',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.white,
-                  )),
+              child: Text(
+                'True',
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.white,
+                ),
+              ),
               color: Colors.green,
               onPressed: () {
                 setState(() {
-                  scoreKeeper.add(Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ));
+                  i++;
                 });
               },
             ),
@@ -78,18 +70,17 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: FlatButton(
-              child: Text('False',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.white,
-                  )),
+              child: Text(
+                'False',
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.white,
+                ),
+              ),
               color: Colors.red,
               onPressed: () {
                 setState(() {
-                  scoreKeeper.add(Icon(
-                    Icons.close,
-                    color: Colors.red,
-                  ));
+                  i++;
                 });
               },
             ),
